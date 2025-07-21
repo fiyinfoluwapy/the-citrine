@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRightIcon } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { events } from '@/data/events'
 import { EventCard } from '@/components/EventCard'
 import { Button } from '@/components/Button'
@@ -30,7 +30,7 @@ export const UpcomingEventsSection = () => {
         </div>
 
         {/* Events Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {displayEvents.map((event, index) => (
             <div
               key={event.id}
@@ -38,7 +38,7 @@ export const UpcomingEventsSection = () => {
                 index === 0 ? 'md:col-span-3 lg:col-span-1' : ''
               }`}
             >
-              <EventCard {...event} />
+              <EventCard {...event} showBadge={event.featured} />
             </div>
           ))}
         </div>
@@ -49,7 +49,7 @@ export const UpcomingEventsSection = () => {
             <Button variant="secondary" size="lg">
               <span className="flex items-center">
                 View All Events
-                <ArrowRightIcon className="ml-2 h-5 w-5" />
+                <ArrowRight className="ml-2 h-5 w-5" />
               </span>
             </Button>
           </Link>
