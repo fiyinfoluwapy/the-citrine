@@ -38,11 +38,11 @@ export default function EventDetailsPage({ params }: { params: { slug: string } 
           <img src={event.image} alt={event.title} className="w-full h-80 object-cover" />
           <div className="p-6">
             <div className="prose max-w-none mb-8">
-              <h2 className="text-xl font-semibold mb-4">About This Event</h2>
+              <h2 className="text-xl text-gray-700 font-semibold mb-4">About This Event</h2>
               <p className="text-gray-700">{event.description}</p>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg mb-8">
-              <h2 className="text-xl font-semibold mb-4">Venue Information</h2>
+              <h2 className="text-xl text-gray-700 font-semibold mb-4">Venue Information</h2>
               <p className="font-medium text-gray-800">{event.venue.name}</p>
               <p className="text-gray-600">{event.venue.address}</p>
               <p className="text-gray-600">{event.venue.city}</p>

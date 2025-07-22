@@ -30,9 +30,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/admin/login" className="text-gray-300 hover:text-[#F9CA5B]">
+                {/* <Link href="/admin/login" className="text-gray-300 hover:text-[#F9CA5B]">
                   Admin Portal
-                </Link>
+                </Link> */}
               </li>
             </ul>
           </div>

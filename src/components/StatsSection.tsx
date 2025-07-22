@@ -12,14 +12,14 @@ export const StatsSection = () => (
           borderColor="#DE8F4D"
         />
         <StatCard
-          title="1,000+ Schools"
-          description="Join a network of over one thousand schools participating in our events"
+          title="100+ Schools"
+          description="Join a network of over one hundred schools participating in our events"
           icon={<GraduationCapIcon className="h-6 w-6 text-[#CB9A38]" />}
           borderColor="#CB9A38"
         />
         <StatCard
-          title="25,000+ Students"
-          description="Helping thousands of students discover opportunities and develop skills"
+          title="250+ Students"
+          description="Helping over hundred students discover opportunities and develop skills"
           icon={<UsersIcon className="h-6 w-6 text-[#F9CA5B]" />}
           borderColor="#F9CA5B"
         />

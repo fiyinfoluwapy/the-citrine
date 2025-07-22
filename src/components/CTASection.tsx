@@ -21,18 +21,18 @@ export const CTASection = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="/events">
-              <Button variant="outline" size="lg">
-                <span className="text-white">Explore Events</span>
+              <Button variant="primary" size="lg" >
+                <span className="text-white ">Explore Events</span>
               </Button>
             </Link>
-            <Link href="/admin/login">
+            {/* <Link href="/admin/login">
               <Button variant="primary" size="lg">
                 <span className="flex items-center bg-white text-[#DE8F4D] px-6 py-3 rounded-md">
                   School Login
                   <ArrowRightIcon className="ml-2 h-5 w-5" />
                 </span>
               </Button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ export const events: Event[] = [{
   title: 'National Science Fair 2023',
   date: 'October 15, 2023',
   location: 'Science Center, New York',
-  image: 'https://images.unsplash.com/photo-1581093458791-9acebcc9b6e6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
+  image: 'https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   description: "Join us for the annual National Science Fair where students from across the country showcase their innovative projects. This year's theme focuses on sustainable technology and environmental solutions. Participants will have the opportunity to present their work to industry experts and compete for scholarships and grants.",
   venue: {
     name: 'National Science Center',

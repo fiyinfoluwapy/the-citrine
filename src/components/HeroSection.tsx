@@ -31,11 +31,7 @@ export const HeroSection = () => {
                   </span>
                 </Button>
               </Link>
-              <Link href="/admin/login">
-                <Button variant="outline" size="lg">
-                  <span className="text-white">School Admin Login</span>
-                </Button>
-              </Link>
+             
             </div>
           </div>
 
@@ -44,7 +40,7 @@ export const HeroSection = () => {
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#F9CA5B] rounded-full opacity-20"></div>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#DE8F4D] rounded-full opacity-20"></div>
             <img
-              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1170&q=80"
+              src="https://images.unsplash.com/photo-1617292797716-ec3000a44093?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Students at educational event"
               className="rounded-lg shadow-2xl relative z-10 w-full h-auto object-cover"
             />

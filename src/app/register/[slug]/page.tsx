@@ -30,17 +30,33 @@ export default function RegisterPage({ params }: RegisterPageProps) {
     resolver: zodResolver(registrationSchema)
   })
 
-  const onSubmit = (data: RegistrationFormData) => {
-    console.log('Form submitted:', data)
-
+  const onSubmit = async (data: RegistrationFormData) => {
     const referenceId = `CIT-${Date.now().toString().slice(-6)}`
-    const query = new URLSearchParams({
-      referenceId,
-      title: event?.title || ''
-    }).toString()
+    const title = event?.title || 'Citrine Event'
 
-    router.push(`/register/success?${query}`)
+    try {
+      await fetch('https://formsubmit.co/ajax/teedire@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({
+          ...data,
+          event: title,
+          referenceId
+        })
+      })
+
+      router.push(
+        `/register/success?referenceId=${referenceId}&title=${encodeURIComponent(title)}`
+      )
+    } catch (error) {
+      console.error('Submission failed:', error)
+      alert('Something went wrong. Please try again later.')
+    }
   }
+
 
   if (!event) {
     return (
@@ -89,9 +105,8 @@ export default function RegisterPage({ params }: RegisterPageProps) {
               <input
                 id="schoolName"
                 type="text"
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#DE8F4D] ${
-                  errors.schoolName ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#DE8F4D] ${errors.schoolName ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="Enter your school name"
                 {...register('schoolName')}
               />
@@ -112,9 +127,8 @@ export default function RegisterPage({ params }: RegisterPageProps) {
               <input
                 id="contactEmail"
                 type="email"
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#DE8F4D] ${
-                  errors.contactEmail ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#DE8F4D] ${errors.contactEmail ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="Enter your email address"
                 {...register('contactEmail')}
               />
@@ -135,9 +149,8 @@ export default function RegisterPage({ params }: RegisterPageProps) {
               <input
                 id="contactPhone"
                 type="tel"
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#DE8F4D] ${
-                  errors.contactPhone ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#DE8F4D] ${errors.contactPhone ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="Enter your phone number"
                 {...register('contactPhone')}
               />
@@ -158,9 +171,8 @@ export default function RegisterPage({ params }: RegisterPageProps) {
               <textarea
                 id="studentDetails"
                 rows={4}
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#DE8F4D] ${
-                  errors.studentDetails ? 'border-red-500' : 'border-gray-300'
-                }`}
+                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-[#DE8F4D] ${errors.studentDetails ? 'border-red-500' : 'border-gray-300'
+                  }`}
                 placeholder="Please provide details about the students attending (number of students, age range, any special requirements, etc.)"
                 {...register('studentDetails')}
               ></textarea>

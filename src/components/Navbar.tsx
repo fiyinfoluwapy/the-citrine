@@ -8,7 +8,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm">
+    <header className="bg-white shadow-lg">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
@@ -21,11 +21,9 @@ export function Navbar() {
               Home
             </Link>
             <Link href="/events" className="text-gray-800 hover:text-[#DE8F4D] font-medium">
-              Events
+              About
             </Link>
-            <Link href="/admin/login" className="text-gray-800 hover:text-[#DE8F4D] font-medium">
-              Admin
-            </Link>
+           
             <Link
               href="/events"
               className="bg-[#DE8F4D] text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors"
@@ -53,20 +51,20 @@ export function Navbar() {
             >
               Home
             </Link>
-            <Link
+            {/* <Link
               href="/events"
               className="block py-2 text-gray-800 hover:text-[#DE8F4D] font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Events
-            </Link>
-            <Link
+            </Link> */}
+            {/* <Link
               href="/admin/login"
               className="block py-2 text-gray-800 hover:text-[#DE8F4D] font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Admin
-            </Link>
+            </Link> */}
             <Link
               href="/events"
               className="block bg-[#DE8F4D] text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors"
