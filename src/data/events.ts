@@ -1,3 +1,5 @@
+//src\data\events.ts
+
 export interface Event {
   id: string;
   slug: string;
