@@ -3,7 +3,7 @@
 
 import { useSearchParams } from 'next/navigation'
 import { Copy, Printer } from 'lucide-react'
-import QRCode from 'qrcode.react';
+// import QRCode from 'qrcode.react';
 
 
 
@@ -58,10 +58,10 @@ export default function PaymentInfoPage() {
         <strong>bookings@citrine.ng</strong> with your name and reference.
       </p>
 
-      <div className="mt-10">
+      {/* <div className="mt-10">
         <p className="font-semibold mb-2">Scan this QR Code at the event:</p>
         <QRCode value={ref} size={128} />
-      </div>
+      </div> */}
 
       <button
         onClick={handlePrint}
