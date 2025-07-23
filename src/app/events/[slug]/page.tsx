@@ -5,24 +5,23 @@ import { events } from '../../../data/events';
 import { CalendarIcon, MapPinIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../../../components/Button';
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
-// Define type for props
 type Props = {
   params: {
     slug: string;
   };
 };
 
-// Generate static params for build-time pre-rendering
+// Pre-generate static paths
 export async function generateStaticParams() {
-  return events.map((event) => ({
-    slug: event.slug,
-  }));
+  return events.map((event) => ({ slug: event.slug }));
 }
 
-// Optional: generate metadata for SEO
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+// Optional: SEO metadata
+export async function generateMetadata(
+  { params }: Props
+): Promise<Metadata> {
   const event = events.find((e) => e.slug === params.slug);
 
   if (!event) {
@@ -38,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// Page component
+// Main page component
 export default function EventDetailsPage({ params }: Props) {
   const event = events.find((e) => e.slug === params.slug);
 
