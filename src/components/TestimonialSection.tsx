@@ -20,7 +20,7 @@ export const TestimonialSection = () => {
       name: 'Lisa Rodriguez',
       role: 'Academic Director, Edison STEM Academy',
       quote:
-        "Citrine has opened doors for our students that we didn't even know existed. The diversity of events available is impressive and enriching.",
+        'Citrine has opened doors for our students that we didn&apos;t even know existed. The diversity of events available is impressive and enriching.',
     },
   ]
 
@@ -48,7 +48,9 @@ export const TestimonialSection = () => {
                   <StarIcon className="h-6 w-6 text-white" />
                 </div>
               </div>
-              <p className="text-gray-300 mb-6 italic">"{item.quote}"</p>
+              <p className="text-gray-300 mb-6 italic">
+                &quot;{item.quote}&quot;
+              </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gray-600 rounded-full mr-4" />
                 <div>

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { CalendarIcon, MapPinIcon } from 'lucide-react';
 
 export interface EventCardProps {
@@ -25,11 +26,16 @@ export function EventCard({
   return (
     <Link href={`/events/${slug}`} className="block group">
       <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-        />
+        <div className="relative w-full h-48">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 768px) 100vw, 33vw"
+            priority
+          />
+        </div>
         <div className="p-4">
           <h3 className="text-lg font-bold text-gray-800 mb-2">{title}</h3>
           <div className="flex items-center text-sm text-gray-500 mb-1">

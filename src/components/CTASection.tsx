@@ -1,7 +1,6 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRightIcon } from 'lucide-react'
 import { Button } from '@/components/Button'
 
 export const CTASection = () => {

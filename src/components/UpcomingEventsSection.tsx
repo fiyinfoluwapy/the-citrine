@@ -1,3 +1,5 @@
+//src\components\UpcomingEventsSection.tsx
+
 'use client'
 
 import Link from 'next/link'
@@ -9,7 +11,7 @@ import { Button } from '@/components/Button'
 export const UpcomingEventsSection = () => {
   // Prioritize featured events first, then slice top 3
   const displayEvents = [...events]
-    .sort((a, b) => (a.featured ? -1 : 1))
+    .sort((a) => (a.featured ? -1 : 1))
     .slice(0, 3)
 
   return (
@@ -34,9 +36,8 @@ export const UpcomingEventsSection = () => {
           {displayEvents.map((event, index) => (
             <div
               key={event.id}
-              className={`transform transition-transform duration-300 hover:-translate-y-2 ${
-                index === 0 ? 'md:col-span-3 lg:col-span-1' : ''
-              }`}
+              className={`transform transition-transform duration-300 hover:-translate-y-2 ${index === 0 ? 'md:col-span-3 lg:col-span-1' : ''
+                }`}
             >
               <EventCard {...event} showBadge={event.featured} />
             </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image' // ✅ Imported optimized Image
 import { ArrowRightIcon } from 'lucide-react'
 import { Button } from '@/components/Button'
 
@@ -31,18 +32,19 @@ export const HeroSection = () => {
                   </span>
                 </Button>
               </Link>
-             
             </div>
           </div>
 
-          {/* Image block */}
-          <div className="hidden lg:block relative">
+          {/* Responsive Image block */}
+          <div className="hidden lg:block relative w-full aspect-[3/2]">
             <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#F9CA5B] rounded-full opacity-20"></div>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#DE8F4D] rounded-full opacity-20"></div>
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1617292797716-ec3000a44093?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Students at educational event"
-              className="rounded-lg shadow-2xl relative z-10 w-full h-auto object-cover"
+              fill
+              className="rounded-lg shadow-2xl relative z-10 object-cover"
+              priority
             />
           </div>
         </div>

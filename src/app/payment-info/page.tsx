@@ -1,74 +1,11 @@
-// 'use client'
-
-// import { useSearchParams } from 'next/navigation'
-// import { Copy } from 'lucide-react'
-// import { useState } from 'react'
-
-// export default function PaymentInfoPage() {
-//   const params = useSearchParams()
-//   const ref = params.get('ref') || 'CIT-XXXXX'
-//   const [copied, setCopied] = useState(false)
-
-//   const copyToClipboard = (text: string) => {
-//     navigator.clipboard.writeText(text)
-//     setCopied(true)
-//     setTimeout(() => setCopied(false), 2000)
-//   }
-
-//   return (
-//     <div className="max-w-xl mx-auto px-4 py-10 text-center">
-//       <h1 className="text-3xl font-bold mb-2 text-green-700">🎉 Registration Successful!</h1>
-//       <p className="text-gray-600 mb-6">Your form has been submitted. Please complete your payment below to secure your slot.</p>
-
-//       <div className="bg-white shadow-md rounded-xl p-6 text-left space-y-4 border">
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium">Bank Name:</span>
-//           <span>Zenith Bank</span>
-//         </div>
-
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium">Account Number:</span>
-//           <span className="flex items-center gap-2">
-//             <span className="font-mono">1234567890</span>
-//             <Copy 
-//               size={18} 
-//               className="cursor-pointer text-blue-600 hover:text-blue-800" 
-//               onClick={() => copyToClipboard('1234567890')} 
-//             />
-//           </span>
-//         </div>
-
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium">Account Name:</span>
-//           <span>Citrine Events</span>
-//         </div>
-
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium">Amount:</span>
-//           <span>₦5,000</span>
-//         </div>
-
-//         <div className="flex justify-between items-center">
-//           <span className="font-medium">Your Reference:</span>
-//           <span className="font-mono text-sm">{ref}</span>
-//         </div>
-//       </div>
-
-//       <p className="mt-6 text-sm text-gray-700">
-//         📩 Please send your proof of payment to <strong>bookings@citrine.ng</strong> with your name and reference ID.
-//       </p>
-
-//       {copied && <p className="text-green-600 mt-3 text-sm">Account number copied!</p>}
-//     </div>
-//   )
-// }
-
 
 'use client'
 
 import { useSearchParams } from 'next/navigation'
 import { Copy, Printer } from 'lucide-react'
-import { QRCode } from 'qrcode.react'
+import QRCode from 'qrcode.react';
+
+
 
 export default function PaymentInfoPage() {
   const params = useSearchParams()
