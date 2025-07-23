@@ -1,24 +1,45 @@
 // src/app/events/[slug]/page.tsx
 
-import { notFound } from "next/navigation";
-import { events } from "../../../data/events";
-import { CalendarIcon, MapPinIcon } from "lucide-react";
-import Link from "next/link";
-import { Button } from "../../../components/Button";
+import { notFound } from 'next/navigation';
+import { events } from '../../../data/events';
+import { CalendarIcon, MapPinIcon } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '../../../components/Button';
+import { Metadata } from 'next';
 
-//  `generateStaticParams` tells Next.js which dynamic paths to pre-render at build time
+// Define type for props
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+// Generate static params for build-time pre-rendering
 export async function generateStaticParams() {
   return events.map((event) => ({
     slug: event.slug,
   }));
 }
 
-//  main page component
-export default function EventDetailsPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+// Optional: generate metadata for SEO
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const event = events.find((e) => e.slug === params.slug);
+
+  if (!event) {
+    return {
+      title: 'Event Not Found',
+      description: 'This event could not be located.',
+    };
+  }
+
+  return {
+    title: event.title,
+    description: event.description.slice(0, 160),
+  };
+}
+
+// Page component
+export default function EventDetailsPage({ params }: Props) {
   const event = events.find((e) => e.slug === params.slug);
 
   if (!event) {
