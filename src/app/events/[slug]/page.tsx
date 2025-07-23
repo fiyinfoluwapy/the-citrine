@@ -1,4 +1,3 @@
-// src/app/events/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { events } from '../../../data/events';
 import { CalendarIcon, MapPinIcon } from 'lucide-react';
@@ -14,9 +13,7 @@ type Props = {
 export default function EventDetailsPage({ params }: Props) {
   const event = events.find((e) => e.slug === params.slug);
 
-  if (!event) {
-    notFound();
-  }
+  if (!event) return notFound();
 
   return (
     <div className="w-full bg-[#F8F8F8]">
