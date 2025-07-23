@@ -5,7 +5,14 @@ import { CalendarIcon, MapPinIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '../../../components/Button';
 
-export default function EventDetailsPage({ params }: { params: { slug: string } }) {
+
+type EventDetailsPageProps = {
+  params: {
+    slug: string;
+  };
+};
+
+export default function EventDetailsPage({ params }: EventDetailsPageProps) {
   const event = events.find((e) => e.slug === params.slug);
 
   if (!event) {
