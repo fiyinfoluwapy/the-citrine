@@ -39,7 +39,7 @@ export const UpcomingEventsSection = () => {
               className={`transform transition-transform duration-300 hover:-translate-y-2 ${index === 0 ? 'md:col-span-3 lg:col-span-1' : ''
                 }`}
             >
-              <EventCard {...event} showBadge={event.featured} />
+              {/* <EventCard {...event} showBadge={event.featured} /> */}
             </div>
           ))}
         </div>
