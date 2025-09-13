@@ -1,20 +1,22 @@
 // app/events/[slug]/page.tsx
 
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { events } from '@/data/events';
-import { CalendarIcon, MapPinIcon, ArrowLeftIcon } from 'lucide-react';
-import { Button } from '@/components/Button';
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { events } from "@/data/events";
+import { CalendarIcon, MapPinIcon, ArrowLeftIcon } from "lucide-react";
+import { Button } from "@/components/Button";
+
 export const dynamicParams = true;
 
-
-type Props = {
-  params: { slug: string };
+// 👇 Notice params can be a Promise
+type EventPageProps = {
+  params: Promise<{
+    slug: string;
+  }>;
 };
 
-// ✅ ASYNC is required here
-export default async function EventDetailsPage({ params }: Props) {
-  const { slug } = params;
+export default async function EventDetailsPage({ params }: EventPageProps) {
+  const { slug } = await params; // 👈 await because params might be a Promise
   const event = events.find((e) => e.slug === slug);
 
   if (!event) {
@@ -25,11 +27,16 @@ export default async function EventDetailsPage({ params }: Props) {
     <div className="w-full bg-[#F8F8F8]">
       <div className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-6">
-          <Link href="/events" className="flex items-center text-gray-600 hover:text-[#DE8F4D] mb-4">
+          <Link
+            href="/events"
+            className="flex items-center text-gray-600 hover:text-[#DE8F4D] mb-4"
+          >
             <ArrowLeftIcon className="h-4 w-4 mr-1" />
             Back to Events
           </Link>
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">{event.title}</h1>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">
+            {event.title}
+          </h1>
           <div className="flex flex-wrap gap-4 text-gray-600 mb-4">
             <div className="flex items-center">
               <CalendarIcon className="h-5 w-5 mr-2 text-[#c7c6c5]" />
@@ -45,7 +52,11 @@ export default async function EventDetailsPage({ params }: Props) {
 
       <div className="container mx-auto px-4 py-8">
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <img src={event.image} alt={event.title} className="w-full h-80 object-cover" />
+          <img
+            src={event.image}
+            alt={event.title}
+            className="w-full h-80 object-cover"
+          />
           <div className="p-6">
             <div className="prose max-w-none mb-8">
               <h2 className="text-xl font-semibold mb-4">About This Event</h2>

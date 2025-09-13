@@ -1,11 +1,11 @@
 'use client'
 
+import { Suspense, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { CheckCircleIcon, CopyIcon } from 'lucide-react'
 import { Button } from '@/components/Button'
-import { useState } from 'react'
 
-export default function SuccessPage() {
+function SuccessContent() {
   const params = useSearchParams()
   const router = useRouter()
 
@@ -68,5 +68,13 @@ export default function SuccessPage() {
         </Button>
       </div>
     </div>
+  )
+}
+
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SuccessContent />
+    </Suspense>
   )
 }
