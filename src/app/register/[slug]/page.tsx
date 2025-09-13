@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -17,7 +17,9 @@ type RegisterFormData = z.infer<typeof registerSchema>
 
 export default function RegisterPage() {
   const router = useRouter()
-  const { slug } = useParams() as { slug: string } // <- 👈 important fix
+  const { slug } = useParams() as { slug: string }
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const {
     register,
@@ -27,9 +29,48 @@ export default function RegisterPage() {
     resolver: zodResolver(registerSchema),
   })
 
-  const onSubmit = (data: RegisterFormData) => {
-    console.log('Form submitted:', data)
-    // Optionally redirect or send data to backend
+  const onSubmit = async (data: RegisterFormData) => {
+    setLoading(true)
+    setError(null)
+
+    try {
+      const formspreeEndpoint = 'https://formspree.io/f/yourFormID' // replace this
+
+      // Build reference ID
+      const referenceId = `CITR-${Date.now()}`
+
+      // Formspree (free) requires URL-encoded submission
+      const formData = new FormData()
+      formData.append('event', slug)
+      formData.append('schoolName', data.schoolName)
+      formData.append('contactEmail', data.contactEmail)
+      formData.append('contactPhone', data.contactPhone)
+      formData.append('referenceId', referenceId)
+
+      const response = await fetch(formspreeEndpoint, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+
+      if (response.ok) {
+        // ✅ Redirect to success page with params
+        router.push(
+          `/register/success?title=${encodeURIComponent(
+            slug
+          )}&referenceId=${referenceId}`
+        )
+      } else {
+        setError('Something went wrong. Please try again later.')
+      }
+    } catch (err) {
+      console.error(err)
+      setError('Network error. Please check your connection.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -47,8 +88,8 @@ export default function RegisterPage() {
             Register to Attend
           </h1>
 
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="mb-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <div>
               <label className="block mb-1 font-medium">School Name</label>
               <input
                 id="schoolName"
@@ -58,11 +99,13 @@ export default function RegisterPage() {
                 {...register('schoolName')}
               />
               {errors.schoolName && (
-                <p className="text-red-500 text-sm mt-1">{errors.schoolName.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.schoolName.message}
+                </p>
               )}
             </div>
 
-            <div className="mb-4">
+            <div>
               <label className="block mb-1 font-medium">Contact Email</label>
               <input
                 id="contactEmail"
@@ -72,11 +115,13 @@ export default function RegisterPage() {
                 {...register('contactEmail')}
               />
               {errors.contactEmail && (
-                <p className="text-red-500 text-sm mt-1">{errors.contactEmail.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.contactEmail.message}
+                </p>
               )}
             </div>
 
-            <div className="mb-4">
+            <div>
               <label className="block mb-1 font-medium">Contact Phone</label>
               <input
                 id="contactPhone"
@@ -86,12 +131,24 @@ export default function RegisterPage() {
                 {...register('contactPhone')}
               />
               {errors.contactPhone && (
-                <p className="text-red-500 text-sm mt-1">{errors.contactPhone.message}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.contactPhone.message}
+                </p>
               )}
             </div>
 
-            <Button type="submit" variant="primary" size="lg" fullWidth>
-              Submit Registration
+            {error && (
+              <p className="text-red-500 text-sm mt-2 text-center">{error}</p>
+            )}
+
+            <Button
+              type="submit"
+              variant="primary"
+              size="lg"
+              fullWidth
+              disabled={loading}
+            >
+              {loading ? 'Submitting...' : 'Submit Registration'}
             </Button>
           </form>
         </div>
