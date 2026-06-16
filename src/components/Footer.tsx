@@ -6,11 +6,11 @@ import { MapPinIcon, PhoneIcon, MailIcon } from 'lucide-react';
 
 export function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-[#980A0A]  text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4 text-[#DE8F4D]">Citrine</h3>
+            <h3 className="text-xl font-bold mb-4 text-white">Citrine Edutainment Ltd.</h3>
             <p className="text-gray-300 mb-4">
               Connecting students with educational events and opportunities to
               help them excel in their academic journey.
@@ -57,7 +57,7 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Citrine. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Citrine Edutainment Ltd. RC: 9191772. All rights reserved.</p>
         </div>
       </div>
     </footer>
