@@ -307,17 +307,13 @@ export default function RegisterPage() {
             {error && (
               <p className="text-red-500 text-sm mt-2 text-center">{error}</p>
             )}
-
-            <Button
+            <button
               type="submit"
-              variant="primary"
-              size="lg"
-              fullWidth
               disabled={loading}
-              className="bg-[#DE8F4D] hover:bg-opacity-90 text-white"
+              className="w-full bg-[#DE8F4D] text-white px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? 'Submitting...' : 'Submit Registration'}
-            </Button>
+            </button>
           </form>
         </div>
       </div>
