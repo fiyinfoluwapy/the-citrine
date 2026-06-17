@@ -9,19 +9,19 @@ export const StatsSection = () => (
           title="50+ Events"
           description="Access to over fifty educational events across the country every year"
           icon={<CalendarIcon className="h-6 w-6 text-[#DE8F4D]" />}
-          borderColor="#DE8F4D"
+          borderColor="#F1C149"
         />
         <StatCard
           title="100+ Schools"
           description="Join a network of over one hundred schools participating in our events"
           icon={<GraduationCapIcon className="h-6 w-6 text-[#CB9A38]" />}
-          borderColor="#CB9A38"
+          borderColor="#F1C149"
         />
         <StatCard
           title="250+ Students"
           description="Helping over hundred students discover opportunities and develop skills"
           icon={<UsersIcon className="h-6 w-6 text-[#F9CA5B]" />}
-          borderColor="#F9CA5B"
+          borderColor="#F1C149" 
         />
       </div>
     </div>

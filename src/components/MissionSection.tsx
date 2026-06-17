@@ -18,8 +18,8 @@ export const MissionSection = () => (
 
       {/* Text */}
       <div className="order-1 lg:order-2">
-        <div className="inline-block bg-[#F9CA5B] bg-opacity-20 px-4 py-1 rounded-full text-sm font-semibold text-[#CB9A38] mb-4">
-          Our Mission
+        <div className="inline-block bg-[#980A0A] bg-opacity-20 px-4 py-1 rounded-full text-sm font-semibold text-white mb-4">
+          Our Mission 
         </div>
         <h2 className="text-3xl font-bold mb-6 text-gray-800">
           Empowering the Next Generation

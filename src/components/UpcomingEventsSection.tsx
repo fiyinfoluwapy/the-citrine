@@ -19,7 +19,7 @@ export const UpcomingEventsSection = () => {
       <div className="container mx-auto px-4">
         {/* Section Heading */}
         <div className="text-center mb-12">
-          <div className="inline-block bg-[#F9CA5B] bg-opacity-20 px-4 py-1 rounded-full text-sm font-semibold text-[#CB9A38] mb-4">
+          <div className="inline-block bg-[#980A0A] bg-opacity-20 px-4 py-1 rounded-full text-sm font-semibold text-white mb-4">
             Upcoming Opportunities
           </div>
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
