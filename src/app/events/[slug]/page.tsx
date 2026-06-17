@@ -59,20 +59,20 @@ export default async function EventDetailsPage({ params }: EventPageProps) {
           />
           <div className="p-6">
             <div className="prose max-w-none mb-8">
-              <h2 className="text-xl font-semibold mb-4">About This Event</h2>
+              <h2 className="text-xl text-[#F1C149] font-semibold mb-4">About This Event</h2>
               <p className="text-gray-700">{event.description}</p>
             </div>
 
             <div className="bg-gray-50 p-4 rounded-lg mb-8">
-              <h2 className="text-xl font-semibold mb-4">Venue Information</h2>
+              <h2 className="text-xl text-[#F1C149] font-semibold mb-4">Venue Information</h2>
               <p className="font-medium text-gray-800">{event.venue.name}</p>
               <p className="text-gray-600">{event.venue.address}</p>
               <p className="text-gray-600">{event.venue.city}</p>
             </div>
 
-            <div className="text-center">
+            <div className="text-center ">
               <Link href={`/register/${event.slug}`}>
-                <Button variant="primary" size="lg">
+                <Button variant="primary"  size="lg" >
                   Register to Attend
                 </Button>
               </Link>
