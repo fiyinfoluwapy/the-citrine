@@ -11,10 +11,10 @@
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
     "lucide-react": "^0.525.0",
-    "next": "^15.4.3",
+    "next": "^16.2.9",
     "qrcode.react": "^4.2.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
     "react-hook-form": "^7.60.0",
     "react-hot-toast": "^2.5.2",
     "zod": "^4.0.5"
